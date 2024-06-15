@@ -13,15 +13,15 @@ def get_sha1_hash(file_path):
 
 URLS = [
     (
+        "aurora-logo.png",
         "https://jamesg.blog/assets/aurora-logo.png",
         "e104d2d326ec0033f8cf537f64dd3fc1fffacc46",
     )
 ]
 
-for url, hash in URLS:
-    file_exists = os.path.exists("aurora-logo.png")
-
-    if file_exists and get_sha1_hash("aurora-logo.png") == url[1]:
+for file_name, url, hash in URLS:
+    file_exists = os.path.exists(file_name)
+    if file_exists and get_sha1_hash(file_name) == url[1]:
         print("File already exists.")
         continue
     elif file_exists:
